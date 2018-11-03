@@ -1,6 +1,6 @@
 #Gauss' algorithm to find easter for a given year
 
-#y = int(input("Enter a year to find the date of easter for >>"))
+y = int(input("Enter a year to find the date of easter for >>"))
 
 def find_easter(y):
     a = y % 19
