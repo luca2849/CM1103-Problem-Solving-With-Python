@@ -24,7 +24,7 @@ True
 # *** DO NOT ADD ANY COMMENTS OF YOUR OWN IN THE SUBMITTED SOLUTION ***
 
 def sumHighest(a, n):
-    if n < 0:
-        return 0
-    if n >= len(a):
-        return sum(a)
+    return sum(a)
+
+import inspect
+print(len(inspect.getsourcelines(sumHighest)[0]))
