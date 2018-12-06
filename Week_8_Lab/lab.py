@@ -54,3 +54,66 @@ d["Phil"] = 20178
 # ====================
 #   Q 4
 # ====================
+import csv
+towns = {}
+with open('towns.csv') as csvfile:
+    rdr = csv.reader(csvfile)
+    for row in rdr:
+        towns[row[0]] = row[1]
+# for key, value in towns.items():
+#     print(key, value)
+
+# ====================
+#   Q 5
+# ====================
+
+# the width expression represents the longest place name
+for key, value in towns.items(): # converts all values to integers so they can be lambda sorted
+    towns[key] = int(value)
+
+# sorted(towns.values(), key=lambda x: -x)
+# for key, value in towns.items():
+#     print(key, value)
+
+# ====================
+#   Q 6
+# ====================
+
+def countLetters(text):
+    letterList={}
+    for letter in text:
+        if letter not in letterList:
+            letterList[letter] = 1
+        else:
+            letterList[letter] += 1
+    return letterList
+
+# ====================
+#   Q 7
+# ====================
+
+import re
+def expressionTest(text):
+    result=re.match("[a-z]+",text)
+    if result != None:
+        print("Matched!")
+    else:
+        print("Not Matched!")
+
+# match("[a-z]+") matches all lowercase letters
+
+# ====================
+#   Q 8
+# ====================
+
+import re
+def matchEmail(email):
+    result = re.match("[a-z]+@[a-z]+.[a-z]{3}", email)
+    if result != None:
+        print("Matched")
+    else:
+        print("Not Matched")
+
+# ====================
+#   Q 9
+# ====================
