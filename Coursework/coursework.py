@@ -26,7 +26,7 @@ def series_score(sailor_results, discard=1):
     #return total
     return total
 
-def sort_series(results):
+def sort_series(sailor_results):
     """
     Function which takes a list of tuples containing the sailor's name and a list of their results
     e.g. [("Alice", [1, 2, 1, 1, 1, 1]), ("Bob", [3, 1, 5, 3, 2, 5]),
@@ -37,14 +37,12 @@ def sort_series(results):
     ('Bob', [3, 1, 5, 3, 2, 5]), ('Dennis', [5, 4, 4, 4, 3, 4]),
     ('Eva', [4, 5, 3, 5, 5, 3])]
     """
-    results_copy = results.copy()
+    sailor_results_copy = sailor_results.copy()
     sailor_list = []
     formatted_output_list = []
     #create list of tuples with series names, result arrays and series scores
-    for index in enumerate(results_copy):
-        sailor_series_score = series_score(results_copy[index])
-        list_value = (results_copy[index][0], results_copy[index][1], sailor_series_score)
-        sailor_list.append(list_value)
+    for i in range(0, len(sailor_results_copy)):
+        sailor_list.append((sailor_results_copy[i][0], sailor_results_copy[i][1], series_score(sailor_results_copy[i])))
     # sort by the series score
     sailor_list.sort(key=itemgetter(2))
     #produce output in required format
@@ -111,10 +109,8 @@ def run_races(num_of_races, file_name="values.csv"):
             results[value].append(index + 1)
         i += 1
     # generate output list with name and series score
-    output = [(key, series_score((key, value))) for key, value in results.items()]
-    # this output list is then sorted by series score
-    sorted_output = sorted(output, key=itemgetter(1))
+    sorted_output = sort_series([(key, value) for key, value in results.items()])
     # a list of just the names is then returned
-    return [i[0] for i in sorted_output]
+    return [tuple[0] for tuple in sorted_output]
 
 print(run_races(6))
