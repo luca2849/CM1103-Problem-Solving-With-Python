@@ -104,6 +104,8 @@ def run_races(num_of_races, file_name="values.csv"):
     while i < num_of_races:
         # calculate the finishing order for race i
         order = calculate_finishing_order(generate_performances(read_sailor_data(file_name)))
+        if num_of_races == 1:
+            return order
         # adds to each sailors position to the dictionary
         for index, value in enumerate(order):
             results[value].append(index + 1)
@@ -112,5 +114,3 @@ def run_races(num_of_races, file_name="values.csv"):
     sorted_output = sort_series([(key, value) for key, value in results.items()])
     # a list of just the names is then returned
     return [tuple[0] for tuple in sorted_output]
-
-print(run_races(6))
