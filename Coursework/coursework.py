@@ -33,7 +33,7 @@ def sort_series(sailor_results):
     ("Clare", [2, 3, 2, 2, 4, 2]), ("Dennis", [5, 4, 4, 4, 3, 4]),
     ("Eva", [4, 5, 3, 5, 5, 3])]
     And returns the list sorted by their series score
-    []('Alice', [1, 2, 1, 1, 1, 1]), ('Clare', [2, 3, 2, 2, 4, 2]),
+    [('Alice', [1, 2, 1, 1, 1, 1]), ('Clare', [2, 3, 2, 2, 4, 2]),
     ('Bob', [3, 1, 5, 3, 2, 5]), ('Dennis', [5, 4, 4, 4, 3, 4]),
     ('Eva', [4, 5, 3, 5, 5, 3])]
     """
